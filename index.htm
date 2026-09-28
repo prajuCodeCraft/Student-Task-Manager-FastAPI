@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Student Task Manager</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <!-- Header -->
+
+    <header>
+
+        <div class="header-content">
+
+            <div>
+                <h1>🎓 Task Manager</h1>
+
+                <p>
+                    Student Productivity Dashboard
+                </p>
+            </div>
+
+            <div class="status">
+                <span class="status-dot"></span>
+                API Connected
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- Main Container -->
+
+    <main class="container">
+
+
+        <!-- Welcome Section -->
+
+        <section class="welcome">
+
+            <div>
+
+                <h2>Manage Your Tasks 📚</h2>
+
+                <p>
+                    Stay organized, complete your assignments,
+                    and track your academic work.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- Statistics -->
+
+        <section class="stats">
+
+            <div class="stat-card">
+
+                <div class="stat-icon blue">
+                    📋
+                </div>
+
+                <div>
+
+                    <h3 id="totalTasks">
+                        0
+                    </h3>
+
+                    <p>Total Tasks</p>
+
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon green">
+                    ✅
+                </div>
+
+                <div>
+
+                    <h3 id="completedTasks">
+                        0
+                    </h3>
+
+                    <p>Completed</p>
+
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon orange">
+                    ⏳
+                </div>
+
+                <div>
+
+                    <h3 id="pendingTasks">
+                        0
+                    </h3>
+
+                    <p>Pending</p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Add Task -->
+
+        <section class="add-task">
+
+            <div class="section-title">
+
+                <h2>➕ Add New Task</h2>
+
+            </div>
+
+
+            <form id="taskForm">
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label>
+                            Task Title
+                        </label>
+
+                        <input
+                            type="text"
+                            id="title"
+                            placeholder="Enter task title"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Priority
+                        </label>
+
+                        <select id="priority">
+
+                            <option value="High">
+                                🔴 High
+                            </option>
+
+                            <option value="Medium" selected>
+                                🟡 Medium
+                            </option>
+
+                            <option value="Low">
+                                🟢 Low
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Description
+                    </label>
+
+                    <textarea
+                        id="description"
+                        placeholder="Enter task description"
+                        rows="3"
+                    ></textarea>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="add-btn"
+                >
+                    ➕ Add Task
+                </button>
+
+            </form>
+
+        </section>
+
+
+        <!-- Task Section -->
+
+        <section class="task-section">
+
+            <div class="task-header">
+
+                <h2>📋 My Tasks</h2>
+
+                <button
+                    onclick="loadTasks()"
+                    class="refresh-btn"
+                >
+                    🔄 Refresh
+                </button>
+
+            </div>
+
+
+            <!-- Filter -->
+
+            <div class="filters">
+
+                <button
+                    class="filter-btn active"
+                    onclick="filterTasks('all', this)"
+                >
+                    All
+                </button>
+
+                <button
+                    class="filter-btn"
+                    onclick="filterTasks('pending', this)"
+                >
+                    Pending
+                </button>
+
+                <button
+                    class="filter-btn"
+                    onclick="filterTasks('completed', this)"
+                >
+                    Completed
+                </button>
+
+            </div>
+
+
+            <!-- Tasks -->
+
+            <div id="taskList">
+
+                <div class="loading">
+                    Loading tasks...
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- Footer -->
+
+    <footer>
+
+        <p>
+            © 2026 Student Task Manager |
+            Built with FastAPI + HTML + CSS + JavaScript
+        </p>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
